@@ -1,0 +1,19 @@
+<h1><%= @category.name %></h1>
+
+<table>
+  <tr>
+    <th>Article Title</th>
+    <th>Created At</th>
+  </tr>
+
+  <% @category.articles.each do |article| %>
+
+  <tr>
+    <th><%= link_to 'Show', article_path(article) %></th>
+    <th><%= article.created_at.strftime("%B %d, %Y") %></th>
+  </tr>
+
+  <% end %>
+</table>
+
+<!-- Add New Article Button (link to article#new) -->
