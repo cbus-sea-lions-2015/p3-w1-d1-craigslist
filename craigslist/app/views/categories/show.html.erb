@@ -9,7 +9,7 @@
   <% @category.articles.each do |article| %>
 
   <tr>
-    <th><%= link_to 'Show', article_path(article) %></th>
+    <th><%= link_to article.title, category_article_path(@category, article) %></th>
     <th><%= article.created_at.strftime("%B %d, %Y") %></th>
   </tr>
 
