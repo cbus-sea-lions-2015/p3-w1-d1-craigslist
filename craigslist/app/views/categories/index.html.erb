@@ -1,0 +1,17 @@
+<h1>Craigslist Jr.</h1>
+
+<table>
+  <tr>
+    <th>Category Title</th>
+    <th>Article Count</th>
+  </tr>
+
+  <% @categories.each do |category| %>
+
+  <tr>
+    <th><%= link_to 'Show', category_path(category) %></th>
+    <th><%= category.articles.count %></th>
+  </tr>
+
+  <% end %>
+</table>
