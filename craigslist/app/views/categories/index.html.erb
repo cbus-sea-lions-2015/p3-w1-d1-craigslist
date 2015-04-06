@@ -2,14 +2,14 @@
 
 <table>
   <tr>
-    <th>Category Title</th>
+    <th>Category Title |</th>
     <th>Article Count</th>
   </tr>
 
   <% @categories.each do |category| %>
 
   <tr>
-    <th><%= link_to 'Show', category_path(category) %></th>
+    <th><%= link_to category.name, category_path(category) %></th>
     <th><%= category.articles.count %></th>
   </tr>
 
