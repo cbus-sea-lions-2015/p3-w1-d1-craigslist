@@ -1,5 +1,7 @@
 class ArticlesController < ApplicationController
 
+
+
   def new
     @category = Category.find(params[:category_id])
     @article = @category.articles.new
@@ -11,7 +13,7 @@ class ArticlesController < ApplicationController
     if @article.save
       redirect_to category_article_path(@category, @article)
     else
-      render 'New'
+      render 'new'
     end
   end
 
@@ -31,7 +33,7 @@ class ArticlesController < ApplicationController
     if @article.update(article_params)
       redirect_to category_article_path(@category, @article)
     else
-      render 'Edit'
+      render 'edit'
     end
   end
 
