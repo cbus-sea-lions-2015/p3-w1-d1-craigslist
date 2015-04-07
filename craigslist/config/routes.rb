@@ -6,26 +6,9 @@ Rails.application.routes.draw do
 
  
 
-  # resources :users, only: [:new, :create]
-  get '/users/new' => 'users#new'
-  post '/users' => 'users#create'
-
-
-# reources way
-# resources :users, only: [:new, :create]
-# users POST /users(.:format)     users#create
-# new_user GET  /users/new(.:format) users#new
-# long way
-# get '/users/new' => 'users#new'
-# post '/users' => 'users#create'
-# users_new GET  /users/new(.:format) users#new
-# users POST /users(.:format)     users#create
-
-  # resource :session, only: [:new, :create, :destroy]
-  get  'session/new' => 'sessions#new'
-  post 'session' => 'sessions#create'
-  delete 'session' => 'sessions#destroy'
-
+  resources :users, only: [:new, :create]
+  resource :session, only: [:new, :create, :destroy]
+  resources :questions, only: [:index, :show, :new, :create]
   root 'categories#index'
 
 end

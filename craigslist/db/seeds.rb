@@ -23,3 +23,15 @@ Category.all.each do |category|
 		                        category: category)
 	end
 end
+
+20.times do 
+Question.create(answer: Faker::Lorem.sentence, 
+	            question:Faker::Lorem.sentence)
+end
+
+Tag.create(name: 'Important')
+Tag.create(name: 'Bikes')
+Tag.create(name: 'I like that one')
+Tag.create(name: 'wrost')
+Tag.create(name: 'Bye')
+Tag.create(name: 'Cucus')

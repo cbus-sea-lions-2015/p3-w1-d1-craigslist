@@ -1,0 +1,11 @@
+<h1> Question: <h1>
+<p><%= @question.question %></p>
+<h1> Answer: <h1>
+<p><%= @question.answer %></p>
+<h1> Tags: <h1>
+<%= @tags.each do |tag| %>
+ <ul>
+ 	tag.name
+ </ul>
+ <% end %>
+
