@@ -1,3 +1,4 @@
+require 'faker'
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
 #
@@ -6,12 +7,19 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-housing = Category.create!(name: "Housing")
-auto = Category.create!(name: "Auto")
+User.create(email: 'jose@tinder.com',password: 'jose' )
 
-Article.create!(title: "Room available", body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vulputate elementum mi, at porta libero cursus non. Morbi fermentum rhoncus justo, et tempor lectus commodo quis. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Fusce condimentum tempus metus at mattis. Integer cursus nisl non pharetra vehicula. Nullam venenatis sed metus sit amet vestibulum. Vivamus tincidunt ac dolor id hendrerit. Nulla leo mauris, vestibulum in sagittis sed, sollicitudin et lectus. Vivamus leo justo, dapibus non venenatis viverra, viverra nec eros. Donec non bibendum nunc, ac pellentesque magna. Phasellus tempus imperdiet metus a hendrerit. Curabitur quis ornare mi.", category: housing)
-Article.create!(title: "Another room available", body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vulputate elementum mi, at porta libero cursus non. Morbi fermentum rhoncus justo, et tempor lectus commodo quis. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Fusce condimentum tempus metus at mattis. Integer cursus nisl non pharetra vehicula. Nullam venenatis sed metus sit amet vestibulum. Vivamus tincidunt ac dolor id hendrerit. Nulla leo mauris, vestibulum in sagittis sed, sollicitudin et lectus. Vivamus leo justo, dapibus non venenatis viverra, viverra nec eros. Donec non bibendum nunc, ac pellentesque magna. Phasellus tempus imperdiet metus a hendrerit. Curabitur quis ornare mi.", category: housing)
+Category.create!(name: "Housing")
+Category.create!(name: "Auto")
+Category.create!(name: "Singles Looking for fun")
+Category.create!(name: "Bikes")
+Category.create!(name: "FUrniture")
+Category.create!(name: "Electronics")
+Category.create!(name: "Fruit")
 
-
-Article.create!(title: "Car available", body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vulputate elementum mi, at porta libero cursus non. Morbi fermentum rhoncus justo, et tempor lectus commodo quis. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Fusce condimentum tempus metus at mattis. Integer cursus nisl non pharetra vehicula. Nullam venenatis sed metus sit amet vestibulum. Vivamus tincidunt ac dolor id hendrerit. Nulla leo mauris, vestibulum in sagittis sed, sollicitudin et lectus. Vivamus leo justo, dapibus non venenatis viverra, viverra nec eros. Donec non bibendum nunc, ac pellentesque magna. Phasellus tempus imperdiet metus a hendrerit. Curabitur quis ornare mi.", category: auto)
-Article.create!(title: "Another car available", body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vulputate elementum mi, at porta libero cursus non. Morbi fermentum rhoncus justo, et tempor lectus commodo quis. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Fusce condimentum tempus metus at mattis. Integer cursus nisl non pharetra vehicula. Nullam venenatis sed metus sit amet vestibulum. Vivamus tincidunt ac dolor id hendrerit. Nulla leo mauris, vestibulum in sagittis sed, sollicitudin et lectus. Vivamus leo justo, dapibus non venenatis viverra, viverra nec eros. Donec non bibendum nunc, ac pellentesque magna. Phasellus tempus imperdiet metus a hendrerit. Curabitur quis ornare mi.", category: auto)
+Category.all.each do |category|
+	10.times do Article.create!(title: Faker::Lorem.sentence, 
+		                        body: Faker::Lorem.paragraph,
+		                        category: category)
+	end
+end
